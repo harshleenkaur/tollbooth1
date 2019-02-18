@@ -1,0 +1,153 @@
+interface tollbooth
+{
+//int Treceipt=0;
+//int Ttrucks=0;
+public void display();
+}
+
+interface truck
+{
+
+
+void caltoll(truck2 t2); 
+}
+class truck1 implements tollbooth
+{
+	int Treceipt;
+	int Ttrucks;
+	String name;
+int tnum;
+int ax;
+int weight;
+void caltoll(truck2 t2)
+{
+int ax = t2.ax;
+int weight = t2.weight;
+int amtdue = 5*ax + 10*(weight/2);
+System.out.println("****No. of axles: " +ax);
+System.out.println("weight of the truck: " +weight);
+System.out.println(" Amount due: " +amtdue);
+ Ttrucks = Ttrucks + 1;
+ Treceipt = Treceipt + amtdue;
+}
+public void display()
+{
+/*System.out.println("name:" +name);
+System.out.println("Truck number:" +tnum);
+System.out.println("axle:" +ax);
+System.out.println("weight:" +weight);
+System.out.println("Total no of recepits:" +Treceipt);
+System.out.println("Total no of trucks" +Ttrucks);
+*/
+}
+}
+class truck2 implements truck
+{
+	String name;
+int tnum;
+int ax;
+int weight;
+truck2(int ax,int weight)
+{
+this.ax=ax;
+this.weight=weight;
+}
+public int getax()
+{
+	return ax;
+}
+public int getweight()
+{
+	return weight;
+}
+
+public void caltoll(truck2 t2)
+{
+}
+
+
+}
+/*public void display()
+{
+System.out.println(this.weight);
+System.out.println(this.ax);
+}
+}*/
+
+class tollbooth1
+{
+public static void main(String[] args)
+{
+truck1 t1=new truck1();
+
+truck2 s1=new truck2(8,4400);
+truck2 s2=new truck2(6,5500);
+truck2 s3=new truck2(2,4000);
+t1.caltoll(s1);
+t1.display();
+t1.caltoll(s2);
+t1.display();
+t1.caltoll(s3);
+t1.display();
+}
+}
+-------------------------------------------------------------------------------------------
+D:\harshleen>javac tollbooth1.java
+
+D:\harshleen>java tollbooth1
+****No. of axles: 8
+weight of the truck: 4400
+ Amount due: 22040
+****No. of axles: 6
+weight of the truck: 5500
+ Amount due: 27530
+****No. of axles: 2
+weight of the truck: 4000
+ Amount due: 20010
+-------------------------------------------------------------------------------------------
+import java.util.*;
+
+class pattern
+{
+	public static void main(String args[])
+	{		
+		int i,j,k;
+		Scanner s = new Scanner(System.in);
+    		System.out.println("Enter value of k=");
+    		 k = s.nextInt();
+    
+		for(i=1;i<=k;i++)
+    		{
+        		for(j=1;j<=i;j++)
+        		{
+            			System.out.print("*");
+        		}
+        		System.out.println("");
+    		}	
+		for(i=k;i>=1;i--)
+    		{
+        		for(j=1;j<i;j++)
+        		{
+            			System.out.print("*");
+        		}
+        		System.out.println("");
+    		}	
+	}
+}
+-------------------------------------------------------------------------------------------
+D:\harshleen>javac pattern.java
+
+D:\harshleen>java pattern
+Enter value of k=
+5
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+
+-------------------------------------------------------------------------------------------
